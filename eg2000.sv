@@ -273,6 +273,10 @@ localparam CONF_STR = {
 	"O[6:5],Tape Volume,Muted,Low,High;",
 	"O[7],Joystick 1,Analog,DPAD;",
 	"O[8],Joystick 2,Analog,DPAD;",
+	// [MiSTer-DB9-Pro BEGIN] - Saturn-first joy_type (canonical bit notation)
+	"O[127:126],UserIO Joystick,Off,Saturn,DB9MD,DB15;",
+	"O[125],UserIO Players,1 Player,2 Players;",
+	// [MiSTer-DB9-Pro END]
 	"P1,Video Settings;",
 	"P1O[12:11],Aspect ratio,Original,Full Screen,[ARC1],[ARC2];",
    "P1O[14:13],Scandoubler,Off,On,HQ2x;",
@@ -280,11 +284,6 @@ localparam CONF_STR = {
     "-;",
 	"R[0],Reset;",
 	"J,*,#,0,1,2,3,4,5,6,7,8,9;",
-	"-;",
-	// [MiSTer-DB9-Pro BEGIN] - Saturn-first joy_type (canonical bit notation)
-	"O[127:126],UserIO Joystick,Off,Saturn,DB9MD,DB15;",
-	"O[125],UserIO Players,1 Player,2 Players;",
-	// [MiSTer-DB9-Pro END]
 	"V,v",`BUILD_DATE
 };
 
