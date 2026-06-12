@@ -130,6 +130,10 @@ module sys_top
 
 //////////////////////  Secondary SD  ///////////////////////////////////
 wire SD_CS, SD_CLK, SD_MOSI, SD_MISO, SD_CD;
+// [MiSTer-DB9 BEGIN] - DB9/SNAC8 support: declare SD_SPI_CS net so the
+// commented-port dead assigns stay legal under a leaked `default_nettype none`
+wire SD_SPI_CS;
+// [MiSTer-DB9 END]
 
 `ifndef MISTER_DUAL_SDRAM
 	wire   sd_cd       = SDCD_SPDIF & ~SW[2]; // SW[2]=ON workaround for faulty boards without SD card detect pin.

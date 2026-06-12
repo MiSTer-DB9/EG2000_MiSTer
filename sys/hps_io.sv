@@ -724,6 +724,12 @@ always@(posedge clk_sys) begin : fio_block
 end
 
 
+// [MiSTer-DB9 BEGIN] - DB9 programmable-remap selector stream drivers
+assign db9_remap_cmd      = (uio_block.cmd == 16'hFD);
+assign db9_remap_byte_cnt = byte_cnt[5:0];
+assign db9_remap_din      = io_din;
+// [MiSTer-DB9 END]
+
 // [MiSTer-DB9-Pro BEGIN] - key gate v1.5 (40-byte UIO_DB9_KEY 0xFE bytestream)
 `include "db9_key_secret.vh"
 // `cmd` is declared inside the `uio_block` named always block, so reach
@@ -740,12 +746,6 @@ db9_key_gate #(
 );
 // [MiSTer-DB9-Pro END]
 
-
-// [MiSTer-DB9 BEGIN] - DB9 programmable-remap selector stream drivers
-assign db9_remap_cmd      = (uio_block.cmd == 16'hFD);
-assign db9_remap_byte_cnt = byte_cnt[5:0];
-assign db9_remap_din      = io_din;
-// [MiSTer-DB9 END]
 endmodule
 
 //////////////////////////////////////////////////////////////////////////////////
